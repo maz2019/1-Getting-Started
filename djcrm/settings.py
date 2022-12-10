@@ -18,7 +18,7 @@ SECRET_KEY = env('SECRET_KEY')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,6 +128,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     BASE_DIR / "static"
 ]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = "media_root"
+STATIC_ROOT = "static_root"
 STATIC_ROOT = 'static_root'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -155,3 +158,5 @@ if not DEBUG:
     X_FRAME_OPTIONS = "DENY"
 
     ALLOWED_HOSTS = ["*"]
+
+TAILWIND_APP_NAME = 'theme'
