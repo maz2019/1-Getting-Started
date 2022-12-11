@@ -172,7 +172,7 @@ if not DEBUG:
     SECURE_HSTS_PRELOAD = True
     X_FRAME_OPTIONS = "DENY"
 
-    ALLOWED_HOSTS = ['127.0.0.1','110.244.13.37']
+    ALLOWED_HOSTS = ['127.0.0.1','10.244.13.37', '10.244.2.35']
 
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = env("EMAIL_HOST")
