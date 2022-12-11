@@ -18,14 +18,10 @@ SECRET_KEY = env('SECRET_KEY')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 AUTHENTICATION_BACKENDS = [
-    
-    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 # Application definition
@@ -74,7 +70,7 @@ ROOT_URLCONF = 'djcrm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR/"templates" ],
+        'DIRS': [ BASE_DIR/ "templates" ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -142,9 +138,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     BASE_DIR / "static"
 ]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = "media_root"
-STATIC_ROOT = "static_root"
+
 STATIC_ROOT = 'static_root'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -187,3 +181,5 @@ if not DEBUG:
     EMAIL_USE_TLS = True
     EMAIL_PORT = env("EMAIL_PORT")
     DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+
+    
