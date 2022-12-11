@@ -54,7 +54,9 @@ INSTALLED_APPS = [
     'crispy_tailwind',
 
 ]
+
 SITE_ID = 1
+
 MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
