@@ -11,7 +11,7 @@ urlpatterns = [
     path('leads/', include('leads.urls', namespace='leads')),
     path('agents/',  include('agents.urls', namespace="agents")),
     path('products/', include('products.urls', namespace='products')),
-    path('account/', include('account.urls', namespace='account')),
+    path('accounts/', include('allauth.urls')),
     
 ]
 
