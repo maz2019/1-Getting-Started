@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+
+
+{% block content %}
+
+<aside class="w-64" aria-label="Sidebar">
+   <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+
+      <ul class="space-y-2">
+          {% recursetree category %}
+        
+         <li>
+            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            {{ node.name }}
+            </a>
+             {% if not node.is_leaf_node %}
+                      <ul class="children">
+                          {{ children }}
+                      </ul>
+                  {% endif %}
+            </a>
+         </li>
+        
+          {% endrecursetree %}
+
+      </ul>
+   </div>
+</aside>
+
+{% endblock content %}

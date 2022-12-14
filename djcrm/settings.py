@@ -2,12 +2,13 @@ from pathlib import Path
 import environ
 import os
 
+
 env = environ.Env(
     DEBUG=(bool, False)
 )
 
 # Take environment variables from .env file
-READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=False)
+READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=True)
 if READ_DOT_ENV_FILE:
     environ.Env.read_env()
 # False if not in os.environ because of casting above
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'employee',
     'leads',
     'products',
+    'mptt',
     
     
     # Third Part Apps
@@ -48,7 +50,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_tailwind',
-
 ]
 
 SITE_ID = 1
