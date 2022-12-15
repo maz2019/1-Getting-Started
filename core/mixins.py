@@ -19,7 +19,7 @@ class AgentAndLoginRequiredMixin(AccessMixin):
 class AgentAndOrgnizerAndLoginRequiredMixin(AccessMixin):
     """Verify that the current user is authenticated. and is Agent"""
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated or not request.user.is_agent or not request.user.is_organizor:
+        if not request.user.is_authenticated or (not request.user.is_organizor and not request.user.is_agent):
             return redirect('home-page')
         return super().dispatch(request, *args, **kwargs)
 

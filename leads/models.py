@@ -21,6 +21,7 @@ class Lead(models.Model):
     first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    email = models.EmailField()
     company = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     age = models.IntegerField(default=0)

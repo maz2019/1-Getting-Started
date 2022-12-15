@@ -1,13 +1,14 @@
 from django.core.mail import send_mail
 from django.shortcuts import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .mixins import AgentAndOrgnizerAndLoginRequiredMixin, OrganizorAndLoginRequiredMixin
+from core.mixins import AgentAndOrgnizerAndLoginRequiredMixin, OrganizorAndLoginRequiredMixin, AgentAndLoginRequiredMixin
 from django.views import generic
 from .models import Lead, Category
 from .forms import (
     LeadModelForm,
     AssignAgentForm,
     LeadCategoryUpdateForm,
+    CategoryModelForm,
 )
 
 
@@ -159,6 +160,19 @@ class CategoryListView(LoginRequiredMixin, generic.ListView):
                 company=user.agent.company
             )
         return queryset
+
+class CategoryCreateView(OrganizorAndLoginRequiredMixin, generic.CreateView):
+    template_name = "leads/category_create.html"
+    form_class = CategoryModelForm
+    
+    def get_success_url(self):
+        return reverse("leads:category-list")
+    
+    def form_valid(self, form):
+        category = form.save(commit=False)
+        category.company = self.request.user.userprofile
+        category.save()
+        return super(CategoryCreateView, self).form_valid(form)
 
     
 class CategoryDetailView(LoginRequiredMixin, generic.DetailView):

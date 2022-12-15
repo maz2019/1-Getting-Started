@@ -8,7 +8,8 @@ from .views import (
     AssignAgentView,
     CategoryListView,
     CategoryDetailView,
-    LeadCategoryUpdateView
+    LeadCategoryUpdateView,
+    CategoryCreateView,
 )
 
 app_name = "leads"
@@ -23,6 +24,8 @@ urlpatterns = [
     path('create/', LeadCreateView.as_view(), name='lead-create'),
     path('categories/', CategoryListView.as_view(), name='category-list'),
     path('categories/<int:pk>/', CategoryDetailView.as_view(), name='category-detail'),
+    path('create-category/', CategoryCreateView.as_view(), name='category-create'),
+
 
 
 ]

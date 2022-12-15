@@ -3,25 +3,24 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
+        <title>Document</title>
+    </head>
+    
+    {% include "navbar.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <title>Document</title>
-</head>
-{% include "navbar.html" %}
-
-<body>
-{% block content %}
-{% endblock content %}
-
-{% include "footer.html" %} 
-{% include "scripts.html" %}
-
-</body>
-
+    <body>
+        <div class="max-w-7xl mx-auto">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        {% include "footer.html" %} 
+        {% include "scripts.html" %}
+    </body>
 </html>
