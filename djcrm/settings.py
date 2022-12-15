@@ -6,7 +6,7 @@ import os
 env = environ.Env(
     DEBUG=(bool, False)
 )
-
+DISABLE_COLLECTSTATIC = 1
 # Take environment variables from .env file
 READ_DOT_ENV_FILE = env.bool('READ_DOT_ENV_FILE', default=True)
 if READ_DOT_ENV_FILE:
