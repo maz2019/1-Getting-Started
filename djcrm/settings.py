@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'employee',
     'leads',
     'products',
-    'mptt',
+    'HR',
     
     
     # Third Part Apps
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_tailwind',
+    'mptt',
 ]
 
 SITE_ID = 1

@@ -8,9 +8,11 @@
         <div class="w-full mb-6 py-6 flex justify-between items-center border-b border-gray-200">
             <div>
                 <h1 class="text-3xl text-gray-800">Products</h1>
+                {% if request.user.is_organizor %}
                 <a class="text-gray-500 hover:text-blue-500" href="{% url 'products:category-list' %}">
                     View Product Categories
                 </a>
+                {% endif %}
             </div class="mt-5">
             {% if request.user.is_organizor %}
             <div>

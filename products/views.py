@@ -29,18 +29,25 @@ class ProductCreateView(OrganizorAndLoginRequiredMixin, generic.CreateView):
 
 class ProductDetailView(OrganizorAndLoginRequiredMixin, generic.DetailView):
     template_name = "products/product_detail.html"
-    context_object_name = "products"
+    context_object_name = "product"
     queryset = Product.objects.all()
 
-    
-
-class ProductUpdateView(generic.UpdateView):
+class ProductUpdateView(OrganizorAndLoginRequiredMixin,generic.UpdateView):
     template_name = "products/product_update.html"
+    form_class = ProductModelForm
     queryset = Product.objects.all()
 
-class ProductDeleteView(generic.DeleteView):
+    def get_success_url(self):
+        return reverse ("products:product-list")
+
+
+class ProductDeleteView(OrganizorAndLoginRequiredMixin,generic.DeleteView):
     template_name = "products/product_delete.html"
+    form_class = ProductModelForm
     queryset = Product.objects.all()
+
+    def get_success_url(self):
+        return reverse ("products:product-list")
 
 class CategoryListView(OrganizorAndLoginRequiredMixin, generic.ListView):
     template_name = "products/categoty_list.html"
